@@ -1,0 +1,1034 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #080c11;
+
+    color: #e9eef5;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+.container {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 24px;
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+h1 {
+
+    margin: 0;
+
+    font-size: 26px;
+}
+
+
+.subtitle {
+
+    margin-top: 6px;
+
+    margin-bottom: 24px;
+
+    color: #7f8b99;
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.inputs {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        auto;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.input-card {
+
+    background: #111720;
+
+    border:
+        1px solid
+        #252f3b;
+
+    border-radius: 9px;
+
+    padding: 12px;
+}
+
+
+.input-card label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #7f8b99;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+input {
+
+    width: 100%;
+
+    padding: 10px;
+
+    background: #090e14;
+
+    border:
+        1px solid
+        #354150;
+
+    border-radius: 6px;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+input:read-only {
+
+    color: #d6a936;
+
+    cursor: default;
+}
+
+
+button {
+
+    align-self: end;
+
+    height: 43px;
+
+    padding:
+        0 22px;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    background: #d6a936;
+
+    color: #101010;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+
+    background: #edc45b;
+}
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.status {
+
+    margin:
+        10px 0;
+
+    color: #778493;
+
+    font-size: 12px;
+}
+
+
+.status.success {
+
+    color: #39d98a;
+}
+
+
+.status.error {
+
+    color: #ff5d68;
+}
+
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+
+.stat {
+
+    background: #111720;
+
+    border:
+        1px solid
+        #252f3b;
+
+    border-radius: 9px;
+
+    padding: 14px;
+}
+
+
+.stat-title {
+
+    margin-bottom: 6px;
+
+    color: #758191;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+.stat-value {
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+.factor {
+
+    color: #d6a936;
+}
+
+
+/* ==========================================================
+   REGIONS
+========================================================== */
+
+.regions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+
+.region {
+
+    background: #111720;
+
+    border:
+        1px solid
+        #252f3b;
+
+    border-radius: 8px;
+
+    padding: 10px;
+}
+
+
+.region-title {
+
+    color: #74808f;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+.region-value {
+
+    margin-top: 5px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+.long {
+
+    color: #32d583;
+}
+
+
+.short {
+
+    color: #ff6470;
+}
+
+
+.call {
+
+    color: #ffca4a;
+}
+
+
+/* ==========================================================
+   PANEL
+========================================================== */
+
+.panel {
+
+    background: #0e141c;
+
+    border:
+        1px solid
+        #252f3b;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.panel-header {
+
+    display: grid;
+
+    grid-template-columns:
+        110px
+        150px
+        1fr
+        110px;
+
+    padding:
+        12px 14px;
+
+    background: #171f29;
+
+    color: #7f8b99;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   ROW
+========================================================== */
+
+.row {
+
+    display: grid;
+
+    grid-template-columns:
+        110px
+        150px
+        1fr
+        110px;
+
+    align-items: center;
+
+    min-height: 46px;
+
+    border-top:
+        1px solid
+        #1d2631;
+}
+
+
+.row:hover {
+
+    background: #151d27;
+}
+
+
+.price {
+
+    padding-left: 14px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+.gc-price {
+
+    color: #e8edf3;
+}
+
+
+/* ==========================================================
+   BARRA
+========================================================== */
+
+.bar-cell {
+
+    padding:
+        7px 10px;
+}
+
+
+.bar-container {
+
+    width: 100%;
+
+    height: 24px;
+
+    background: #090e14;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.bar {
+
+    height: 100%;
+
+    min-width: 2px;
+
+    border-radius: 4px;
+
+    transition:
+        width 0.25s ease;
+}
+
+
+.bar.positive {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(34,197,94,0.30),
+            rgba(34,197,94,0.95)
+        );
+}
+
+
+.bar.negative {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(239,68,68,0.30),
+            rgba(239,68,68,0.95)
+        );
+}
+
+
+/* ==========================================================
+   GEX
+========================================================== */
+
+.gex {
+
+    padding-right: 14px;
+
+    text-align: right;
+
+    font-weight: bold;
+}
+
+
+.positive-text {
+
+    color: #39d98a;
+}
+
+
+.negative-text {
+
+    color: #ff5d68;
+}
+
+
+/* ==========================================================
+   MARCADORES
+========================================================== */
+
+.marker {
+
+    display: inline-block;
+
+    margin-left: 5px;
+
+    padding:
+        3px 6px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+
+.marker.call {
+
+    background:
+        rgba(214,169,54,0.15);
+
+    color: #e3b83e;
+}
+
+
+.marker.long {
+
+    background:
+        rgba(50,213,131,0.15);
+
+    color: #39d98a;
+}
+
+
+.marker.short {
+
+    background:
+        rgba(255,100,112,0.15);
+
+    color: #ff6470;
+}
+
+
+/* ==========================================================
+   LEGENDA
+========================================================== */
+
+.legend {
+
+    display: flex;
+
+    gap: 20px;
+
+    padding: 14px;
+
+    color: #7f8b99;
+
+    font-size: 11px;
+}
+
+
+.legend span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+
+.dot.green {
+
+    background: #32d583;
+}
+
+
+.dot.red {
+
+    background: #ff5d68;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer {
+
+    margin-top: 16px;
+
+    color: #596574;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   ERRO
+========================================================== */
+
+.error-box {
+
+    padding: 30px;
+
+    color: #ff5d68;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .inputs {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .stats {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .regions {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .panel-header,
+    .row {
+
+        grid-template-columns:
+            80px
+            110px
+            1fr
+            80px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+
+        padding: 12px;
+    }
+
+
+    .inputs,
+    .stats,
+    .regions {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .panel-header,
+    .row {
+
+        grid-template-columns:
+            75px
+            100px
+            1fr
+            70px;
+    }
+
+
+    .price {
+
+        padding-left: 8px;
+    }
+
+
+    .gex {
+
+        padding-right: 8px;
+    }
+}
+
+/* ==========================================================
+   TESTE MANUAL
+========================================================== */
+
+.manual-test {
+
+    margin-bottom: 18px;
+
+    background: #0e141c;
+
+    border:
+        1px solid
+        #252f3b;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.manual-test-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 16px;
+
+    background: #171f29;
+}
+
+
+.manual-test-header h2 {
+
+    margin: 0;
+
+    font-size: 16px;
+}
+
+
+.manual-test-header span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #74808f;
+
+    font-size: 11px;
+}
+
+
+.manual-levels {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    padding: 14px;
+}
+
+
+.manual-input label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #7f8b99;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+.manual-input input {
+
+    width: 100%;
+}
+
+
+.manual-results {
+
+    border-top:
+        1px solid
+        #252f3b;
+}
+
+
+.manual-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    padding:
+        12px 16px;
+
+    border-top:
+        1px solid
+        #1d2631;
+
+    font-size: 15px;
+}
+
+
+.manual-row.header {
+
+    border-top: 0;
+
+    background: #111720;
+
+    color: #7f8b99;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+}
+
+
+.manual-row:not(.header) div:last-child {
+
+    color: #d6a936;
+
+    font-weight: bold;
+}
+
+
+@media (max-width: 700px) {
+
+    .manual-levels {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   GAMMA FLIP
+========================================================== */
+
+.gamma-flip-panel {
+
+    grid-column: 1 / -1;
+
+    background: #0e141c;
+
+    border: 1px solid #252f3b;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.gamma-flip-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background: #171f29;
+}
+
+
+.gamma-flip-header h2 {
+
+    margin: 0;
+
+    font-size: 16px;
+}
+
+
+.gamma-flip-header span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #74808f;
+
+    font-size: 11px;
+}
+
+
+.gamma-flip-header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.gamma-flip-toggle {
+
+    width: 34px !important;
+
+    height: 34px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #252f3b !important;
+
+    color: #d6a936 !important;
+
+    border: 1px solid #354150 !important;
+
+    border-radius: 6px !important;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    align-self: center !important;
+}
+
+
+.gamma-flip-toggle:hover {
+
+    background: #354150 !important;
+
+    color: #edc45b !important;
+}
+
+
+.gamma-flip-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    padding: 14px;
+}
+
+
+.gamma-flip-card {
+
+    background: #111720;
+
+    border: 1px solid #252f3b;
+
+    border-radius: 8px;
+
+    padding: 14px;
+}
+
+
+.flip-title {
+
+    color: #74808f;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+
+.flip-value {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #d6a936;
+}
+
+
+.flip-status {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.flip-age {
+
+    margin-top: 8px;
+
+    color: #596574;
+
+    font-size: 10px;
+}
+
+
+/* ==========================================================
+   CONTEÚDO MINIMIZADO
+========================================================== */
+
+.gamma-flip-panel.minimized
+.gamma-flip-content {
+
+    display: none;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .gamma-flip-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+

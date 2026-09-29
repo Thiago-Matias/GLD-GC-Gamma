@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GLD → GC Gamma</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+
+<body>
+
+<div class="container">
+
+   <header>
+
+    <h1>GLD → GC Gamma</h1>
+
+    <div class="subtitle">
+        Gold 0DTE · GEX convertido para GC
+    </div>
+
+    <div class="dte-selector">
+
+        <button
+            type="button"
+            data-dte="0"
+            class="dte-button active"
+        >
+            0DTE
+        </button>
+
+        <button
+            type="button"
+            data-dte="1"
+            class="dte-button"
+        >
+            1DTE
+        </button>
+
+    </div>
+
+    <div class="dte-info">
+
+        DTE:
+        <strong id="currentDTE">0DTE</strong>
+
+        <span id="currentExpiration"></span>
+
+        <span id="gammaFrozen"></span>
+
+    </div>
+
+</header>
+
+
+
+    <!-- ==================================================
+         ÂNCORA
+    =================================================== -->
+
+    <section class="inputs">
+
+        <div class="input-card">
+
+            <label>GLD âncora</label>
+
+            <input
+                id="gldAnchor"
+                type="number"
+                step="0.01"
+                placeholder="Ex: 393.30"
+            >
+
+        </div>
+
+
+        <div class="input-card">
+
+            <label>GC âncora</label>
+
+            <input
+                id="gcAnchor"
+                type="number"
+                step="0.01"
+                placeholder="Ex: 4329.43"
+            >
+
+        </div>
+
+
+        <div class="input-card">
+
+            <label>Hora-chave (Nova York) menos -1h para BR</label>
+
+            <input
+                id="anchorTime"
+                type="time"
+                readonly
+            >
+
+        </div>
+
+
+        <button id="calculateButton">
+            ATUALIZAR
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         STATUS
+    =================================================== -->
+
+    <div
+        id="status"
+        class="status"
+    >
+        Inicializando...
+    </div>
+
+
+    <!-- ==================================================
+         RESUMO
+    =================================================== -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <div class="stat-title">
+                GLD
+            </div>
+
+            <div
+                id="showGLD"
+                class="stat-value"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-title">
+                GC
+            </div>
+
+            <div
+                id="showGC"
+                class="stat-value"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-title">
+                Fator
+            </div>
+
+            <div
+                id="showFactor"
+                class="stat-value factor"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-title">
+                Âncora
+            </div>
+
+            <div
+                id="showTime"
+                class="stat-value"
+            >
+                -
+            </div>
+
+        </div>
+
+        <!-- ======================================================
+            GAMMA FLIP
+        ====================================================== -->
+
+        <div class="gamma-flip-panel" id="gammaFlipPanel">
+
+        <div class="gamma-flip-header">
+
+            <div>
+
+                <h2>GAMMA FLIP</h2>
+
+                <span>
+                    Comparação AlgoX Flow × Nosso cálculo
+                </span>
+
+            </div>
+
+            <div class="gamma-flip-header-right">
+
+                <div
+                    id="gammaRegime"
+                    class="gamma-regime"
+                >
+                    -
+                </div>
+
+                <button
+                    type="button"
+                    id="toggleGammaFlip"
+                    class="gamma-flip-toggle"
+                >
+                    −
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="gamma-flip-content"
+            id="gammaFlipContent"
+        >
+
+            <div class="gamma-flip-grid">
+
+                <div class="gamma-flip-card">
+
+                    <div class="flip-title">
+                        ALGOX FLOW
+                    </div>
+
+                    <div
+                        id="algoxGammaFlip"
+                        class="flip-value"
+                    >
+                        -
+                    </div>
+
+                    <div
+                        id="algoxGammaStatus"
+                        class="flip-status"
+                    >
+                        -
+                    </div>
+
+                    <div class="flip-age">
+
+                        Atualização:
+                        <span id="algoxGammaAge">
+                            -
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gamma-flip-card">
+
+                    <div class="flip-title">
+                        NOSSO GAMMA
+                    </div>
+
+                    <div
+                        id="ourGammaFlip"
+                        class="flip-value"
+                    >
+                        -
+                    </div>
+
+                    <div
+                        id="ourGammaStatus"
+                        class="flip-status"
+                    >
+                        -
+                    </div>
+
+                    <div class="flip-age">
+
+                        Calculado pelos nossos dados
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </section>
+
+
+    <!-- ==================================================
+         REGIÕES
+    =================================================== -->
+
+    <section class="regions">
+
+        <div class="region">
+
+            <div class="region-title">
+                Maior Gamma +
+            </div>
+
+            <div
+                id="maxPositive"
+                class="region-value long"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="region">
+
+            <div class="region-title">
+                Maior Gamma -
+            </div>
+
+            <div
+                id="maxNegative"
+                class="region-value short"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="region">
+
+            <div class="region-title">
+                Gamma Long · GC
+            </div>
+
+            <div
+                id="gammaLong"
+                class="region-value long"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="region">
+
+            <div class="region-title">
+                Gamma Short · GC
+            </div>
+
+            <div
+                id="gammaShort"
+                class="region-value short"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="region">
+
+            <div class="region-title">
+                0DTE
+            </div>
+
+            <div
+                id="expirationStatus"
+                class="region-value call"
+            >
+                -
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         TABELA
+    =================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>GLD</div>
+
+            <div>GC</div>
+
+            <div>Intensidade</div>
+
+            <div>GEX</div>
+
+        </div>
+
+
+        <div id="gammaTable">
+
+            <div class="loading-box">
+                Carregando Gamma...
+            </div>
+
+        </div>
+
+
+        <div class="legend">
+
+            <span>
+                <span class="dot green"></span>
+                Gamma positivo
+            </span>
+
+            <span>
+                <span class="dot red"></span>
+                Gamma negativo
+            </span>
+
+            <span>
+                Barra = intensidade relativa do GEX
+            </span>
+
+        </div>
+
+    </section>
+
+    
+        <div class="more-levels-container">
+
+        <button
+            id="moreLevelsButton"
+            type="button"
+        >
+            MOSTRAR MAIS NÍVEIS
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         FÓRMULA
+    =================================================== -->
+
+    <footer>
+
+        <div>
+            Fator =
+            GC da hora-chave ÷ GLD da hora-chave
+        </div>
+
+        <div>
+            GC =
+            GC âncora +
+            (GLD strike − GLD âncora)
+            × fator
+        </div>
+
+        <div>
+            A âncora muda somente na virada de cada hora.
+        </div>
+
+    </footer>
+
+
+    <!-- ==================================================
+         TESTE MANUAL
+    =================================================== -->
+
+    <section class="manual-test">
+
+        <div class="manual-test-header">
+
+            <div>
+
+                <h2>
+                    Teste manual GLD → GC
+                </h2>
+
+                <span>
+                    Digite os níveis GLD que deseja converter.
+                </span>
+
+            </div>
+
+            <button id="manualButton">
+                TESTAR MANUAL
+            </button>
+
+        </div>
+
+
+        <div class="manual-levels">
+
+            <div class="manual-input">
+
+                <label>GLD</label>
+
+                <input
+                    id="manual393"
+                    type="number"
+                    step="0.01"
+                    value="393"
+                >
+
+            </div>
+
+
+            <div class="manual-input">
+
+                <label>GLD</label>
+
+                <input
+                    id="manual392"
+                    type="number"
+                    step="0.01"
+                    value="392"
+                >
+
+            </div>
+
+
+            <div class="manual-input">
+
+                <label>GLD</label>
+
+                <input
+                    id="manual391"
+                    type="number"
+                    step="0.01"
+                    value="391"
+                >
+
+            </div>
+
+
+            <div class="manual-input">
+
+                <label>GLD</label>
+
+                <input
+                    id="manual390"
+                    type="number"
+                    step="0.01"
+                    value="390"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="manual-results">
+
+            <div class="manual-row header">
+
+                <div>GLD</div>
+
+                <div>GC CONVERTIDO</div>
+
+            </div>
+
+
+            <div class="manual-row">
+
+                <div id="manualGld393">
+                    393
+                </div>
+
+                <div id="manualGc393">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="manual-row">
+
+                <div id="manualGld392">
+                    392
+                </div>
+
+                <div id="manualGc392">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="manual-row">
+
+                <div id="manualGld391">
+                    391
+                </div>
+
+                <div id="manualGc391">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="manual-row">
+
+                <div id="manualGld390">
+                    390
+                </div>
+
+                <div id="manualGc390">
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+<div class="dte-info">
+
+    DTE:
+    <strong id="currentDTE">0DTE</strong>
+
+    <span id="currentExpiration"></span>
+
+    <span id="gammaFrozen"></span>
+
+</div>
+
+
+</div>
+
+
+<script src="/app.js?v=3"></script>
+
+</body>
+
+</html>
